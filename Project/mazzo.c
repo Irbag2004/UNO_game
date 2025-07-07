@@ -52,3 +52,4 @@ struct carta getAndRemoveFirstCard(List l) {
 
     return c;
 }
+

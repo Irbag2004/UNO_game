@@ -100,3 +100,8 @@ bool delete(List l, struct carta card) {
 
         return len;
     }
+
+
+    void stampaCarta(struct carta c) {
+    printf("Carta pescata: num = %s, colore = %s\n", NumeroNome[c.num], ColoreNome[c.colore]);
+    }

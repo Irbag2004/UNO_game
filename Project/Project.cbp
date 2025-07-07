@@ -41,6 +41,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="mazzo.h" />
+		<Unit filename="pila_scarti.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="pila_scarti.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

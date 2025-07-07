@@ -1,0 +1,69 @@
+
+UNO - Regolamento Ufficiale
+
+Contenuto della Confezione
+- 112 carte, incluse 3 carte Jolly Personalizzabili (vedi sezione "Carte Azione").
+
+Obiettivo del Gioco
+Essere il primo giocatore a scartare tutte le proprie carte.
+
+Preparativi
+1. Scegliete un mazziere e mescolate le carte.
+2. Distribuite 7 carte a ogni giocatore.
+3. Posizionate le carte rimanenti coperte al centro del tavolo: formano il Mazzo di Pesca.
+4. Capovolgete la prima carta del Mazzo di Pesca e mettetela scoperta a formare il Mazzo di Scarto.
+   - Se la carta e una Carta Azione, ignoratela e giratene un'altra finche non trovate una carta numerica.
+5. Il giocatore alla sinistra del mazziere inizia. Il gioco procede in senso orario.
+
+Svolgimento del Gioco
+
+Durante il tuo turno:
+1. Puoi giocare una carta che abbia almeno una caratteristica in comune con la carta in cima al Mazzo di Scarto:
+   - Numero
+   - Colore
+   - Simbolo
+2. Se non puoi giocare, devi pescare una carta dal Mazzo di Pesca:
+   - Se la carta pescata e giocabile, puoi giocarla subito.
+   - Altrimenti, il turno passa al giocatore successivo.
+3. Puoi scegliere di pescare una carta anche se hai carte giocabili. Se quella pescata e valida, puoi giocarla subito.
+4. Se giochi una Carta Azione, applicane l'effetto (vedi sotto).
+
+Se il Mazzo di Pesca finisce:
+- Mescolate il Mazzo di Scarto per formare un nuovo Mazzo di Pesca.
+
+Gridare "UNO"
+- Quando ti rimane una sola carta in mano, devi gridare "UNO".
+- Se un altro giocatore ti coglie in fallo prima che il prossimo inizi il turno, devi pescare 2 carte come penalita.
+
+Vittoria
+- Vince il giocatore che gioca per primo tutte le proprie carte.
+- Si puo giocare una nuova partita mescolando nuovamente tutte le carte.
+
+Carte Azione
+
+Carte Base (20 punti ciascuna):
+- Pesca Due: il giocatore successivo pesca 2 carte e salta il turno.
+- Cambia Giro: cambia la direzione del gioco.
+- Salta Giro: il giocatore successivo salta il turno.
+
+Carte Jolly (50 punti ciascuna):
+- Jolly Cambia Colore: puo essere giocata in qualsiasi momento. Il giocatore sceglie il colore con cui proseguire.
+- Jolly Pesca Quattro: puo essere giocata solo se non si ha una carta abbinabile per colore. Il giocatore successivo puo:
+  - Pescare 4 carte e saltare il turno
+  - Oppure sfidare. Se la sfida e corretta, chi ha giocato la carta pesca 4 carte. Se sbagliata, lo sfidante pesca 6 carte.
+- Jolly Mischia Tutto: raccoglie tutte le carte dei giocatori, le mischia, e le redistribuisce equamente. Il colore viene scelto da chi ha giocato la carta.
+
+Carte Personalizzabili - Esempi di utilizzo:
+- Il giocatore successivo pesca fino a trovare un colore specifico.
+- Tutti tranne chi ha giocato scartano i Jolly.
+- Il giocatore successivo pesca 3 carte se non ha da giocare.
+- Si gioca un turno extra.
+- Il giocatore successivo deve avere esattamente 7 carte.
+
+Metodo di Punteggio (opzionale)
+Alla fine di ogni mano, il vincitore guadagna punti in base alle carte rimaste agli avversari:
+- Carte numerate (0-9): valore della carta
+- Carte Azione: 20 punti
+- Carte Jolly: 50 punti
+
+Il primo a raggiungere 500 punti vince la partita.

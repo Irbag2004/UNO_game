@@ -53,5 +53,6 @@ void rewindCursor(List l);
 List riempiMazzo();
 
 struct carta getAndRemoveFirstCard();
+void stampaCarta(struct carta c);
 
 #endif // MAZZO_H_INCLUDED

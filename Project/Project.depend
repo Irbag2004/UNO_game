@@ -1,0 +1,57 @@
+# depslib dependency file v1.0
+1751551284 source:c:\users\hp\desktop\unical\lt_ingelettronica\2_anno\2_semestre\laboratorio di informatica\progetto\uno_game\project\listamazzo.c
+	<stdbool.h>
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"mazzo.h"
+
+1751551284 c:\users\hp\desktop\unical\lt_ingelettronica\2_anno\2_semestre\laboratorio di informatica\progetto\uno_game\project\mazzo.h
+	<stdbool.h>
+
+1751551284 source:c:\users\hp\desktop\unical\lt_ingelettronica\2_anno\2_semestre\laboratorio di informatica\progetto\uno_game\project\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"mazzo.h"
+
+1751551284 source:c:\users\hp\desktop\unical\lt_ingelettronica\2_anno\2_semestre\laboratorio di informatica\progetto\uno_game\project\mazzo.c
+	<stdio.h>
+	<stdbool.h>
+	<stdlib.h>
+	"mazzo.h"
+
+1751906326 source:c:\users\hp\desktop\unical\lt_ingelettronica\2_anno\2_semestre\laboratorio di informatica\progetto\project\listamazzo.c
+	<stdbool.h>
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"mazzo.h"
+
+1751905978 c:\users\hp\desktop\unical\lt_ingelettronica\2_anno\2_semestre\laboratorio di informatica\progetto\project\mazzo.h
+	<stdbool.h>
+
+1751906529 source:c:\users\hp\desktop\unical\lt_ingelettronica\2_anno\2_semestre\laboratorio di informatica\progetto\project\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<stdbool.h>
+	"mazzo.h"
+	"pila_scarti.h"
+
+1751906179 source:c:\users\hp\desktop\unical\lt_ingelettronica\2_anno\2_semestre\laboratorio di informatica\progetto\project\mazzo.c
+	<stdio.h>
+	<stdbool.h>
+	<stdlib.h>
+	"mazzo.h"
+
+1751904589 c:\users\hp\desktop\unical\lt_ingelettronica\2_anno\2_semestre\laboratorio di informatica\progetto\project\pila_scarti.h
+	<stdbool.h>
+	"mazzo.h"
+
+1751905177 source:c:\users\hp\desktop\unical\lt_ingelettronica\2_anno\2_semestre\laboratorio di informatica\progetto\project\pila_scarti.c
+	<stdio.h>
+	<stdlib.h>
+	<limits.h>
+	"pila_scarti.h"
+
