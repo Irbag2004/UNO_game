@@ -39,8 +39,8 @@ int main() {
     }
 
     //Creo alcune carte di esempio
-    struct carta prima = getAndRemoveFirstCard(mazzoDisordinato);
-    struct carta seconda = getAndRemoveFirstCard(mazzoDisordinato);
+    struct carta prima = PrendiERimuoviPrimaCarta(mazzoDisordinato);
+    struct carta seconda = PrendiERimuoviPrimaCarta(mazzoDisordinato);
 
     //Inserisco le carte nello stack
     pushScarto(scarti, prima);
@@ -58,6 +58,31 @@ int main() {
 
     //Stampo lo stack
     printScarti(scarti);
+
+
+
+    //PROVA MANO
+    printf("\n\n\n");
+    int i;
+    List manoG1=createList();
+    for(i=0;i<7;i++){
+        struct carta ci=PrendiERimuoviPrimaCarta(mazzoDisordinato);
+        aggiungiCarta(manoG1,ci);
+    }
+
+    stampaMano(manoG1);
+    ordinaMano(manoG1);
+    printf("\nMano ordinata:\n");
+    stampaMano(manoG1);
+
+
+
+
+
+
+
+
+
 
 //Interfaccia utente
 bool esc=false;

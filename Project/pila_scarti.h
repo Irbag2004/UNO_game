@@ -2,7 +2,7 @@
 #define PILA_SCARTI_H
 
 #include <stdbool.h>
-#include "mazzo.h"  // per la definizione di struct carta
+#include "mazzo.h"
 
 #define INCREASE_SIZE 1
 
@@ -13,7 +13,8 @@ typedef struct stack {
     int top_index;
 } *Scarti;
 
-// Funzioni per la gestione dello stack
+
+
 Scarti createScarti();
 bool increaseScarti(Scarti s);
 bool pushScarto(Scarti s, struct carta c);

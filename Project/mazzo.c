@@ -35,7 +35,7 @@ List riempiMazzo() {
 
 
 
-struct carta getAndRemoveFirstCard(List l) {
+struct carta PrendiERimuoviPrimaCarta(List l) {
     struct carta c = { -1, -1 };
 
     if (l == NULL || l->head == NULL) {

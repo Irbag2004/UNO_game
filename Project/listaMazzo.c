@@ -7,6 +7,7 @@
 const char* ColoreNome[] ={"B", "G", "R", "V","N"};
 const char* NumeroNome[] ={"0","1", "2", "3", "4", "5", "6", "7", "8", "9", "X","<->", "+2", "CC","+4"};
 
+
 List createList() {
 
     List l = (List)malloc(sizeof(struct list));

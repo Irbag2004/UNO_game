@@ -55,3 +55,46 @@
 	<limits.h>
 	"pila_scarti.h"
 
+1751969864 source:c:\users\gabri\documents\github\project\listamazzo.c
+	<stdbool.h>
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"mazzo.h"
+
+1751969800 c:\users\gabri\documents\github\project\mazzo.h
+	<stdbool.h>
+
+1751906960 source:c:\users\gabri\documents\github\project\pila_scarti.c
+	<stdio.h>
+	<stdlib.h>
+	<limits.h>
+	"pila_scarti.h"
+
+1751906960 c:\users\gabri\documents\github\project\pila_scarti.h
+	<stdbool.h>
+	"mazzo.h"
+
+1751966871 source:c:\users\gabri\documents\github\project\mazzo.c
+	<stdio.h>
+	<stdbool.h>
+	<stdlib.h>
+	"mazzo.h"
+
+1751972780 source:c:\users\gabri\documents\github\project\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<stdbool.h>
+	"mazzo.h"
+	"pila_scarti.h"
+
+1751972668 source:c:\users\gabri\documents\github\project\mano.c
+	<stdio.h>
+	<stdlib.h>
+	"mano.h"
+
+1751971636 c:\users\gabri\documents\github\project\mano.h
+	<stdbool.h>
+	"mazzo.h"
+

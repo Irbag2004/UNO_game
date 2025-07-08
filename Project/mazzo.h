@@ -3,8 +3,8 @@
 
 #include <stdbool.h>
 
-enum colore {BLU, GIALLO, ROSSO, VERDE, NEUTRO};
 
+enum colore {BLU, GIALLO, ROSSO, VERDE, NEUTRO};
 enum num {ZERO, UNO, DUE, TRE, QUATTRO, CINQUE, SEI, SETTE, OTTO, NOVE, SALTA_GIRO, CAMBIA_GIRO, PESCA_DUE, CAMBIA_COLORE, PESCA_QUATTRO};
 
 struct carta {
@@ -52,7 +52,7 @@ void rewindCursor(List l);
 
 List riempiMazzo();
 
-struct carta getAndRemoveFirstCard();
+struct carta PrendiERimuoviPrimaCarta();
 void stampaCarta(struct carta c);
 
 #endif // MAZZO_H_INCLUDED
