@@ -6,10 +6,10 @@
 
 
 bool aggiungiCarta(List mano, struct carta c);
-struct carta estraiCarta(List mano, struct carta c);
+struct carta estraiCarta(List mano, int occr);
 void stampaMano(List mano);
 bool manoVuota(List mano);
 int numeroCarteMano(List mano);
-
+void ordinaMano(List mano);
 
 #endif // MANO_H_INCLUDED

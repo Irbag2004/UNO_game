@@ -35,18 +35,17 @@ bool increaseScarti(Scarti s) {
 }
 
 // Inserisce una carta nello stack
-bool pushScarto(Scarti s, struct carta c) {
+void pushScarto(Scarti s, struct carta c) {
     if (s == NULL)
-        return false;
+        printf("errore");
 
     if (s->top_index == s->size - 1) {//se non è disponibile lo spazio per una carta...
         if (!increaseScarti(s))
-            return false;
+            printf("errore");
     }
 
     s->top_index++;
     s->stack[s->top_index] = c;
-    return true;
 }
 
 // Restituisce la carta in cima senza rimuoverla
@@ -58,25 +57,6 @@ struct carta topScarto(Scarti s) {
     return c;
 }
 
-// Controlla se lo stack è vuoto
-bool isEmptyScarti(Scarti s) {
-    return (s == NULL || s->top_index == -1);
-}
-
-// Stampa tutte le carte nello stack
-void printScarti(Scarti s) {
-    if (s == NULL || isEmptyScarti(s)) {
-        printf("[Pila scarti vuota]\n");
-        return;
-    }
-
-    printf("Pila degli scarti:\n");
-    for (int i = s->top_index; i >= 0; i--) {
-        struct carta c = s->stack[i];
-        printf("Carta: numero = %d, colore = %d\n", c.num, c.colore);
-    }
-
-}
 
 
 void destroyScarti(Scarti s) {

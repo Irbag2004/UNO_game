@@ -21,36 +21,31 @@ bool aggiungiCarta(List mano, struct carta c) {
 }
 
 
-//rimuove la carta richiesta dalla mano, pronta per essere giocata
-struct carta estraiCarta(List mano, struct carta daCercare) {
+//rimuove il numero della carta richiesta dalla mano, pronta per essere giocata
+
+struct carta estraiCarta(List mano, int occr) {
     struct carta c = { .num = -1, .colore = -1 };
 
-    if (mano == NULL || mano->head == NULL)
-        return c;
-
-    Node curr = mano->head;
-    Node prev = NULL;   //la carta precedente alla prima non puo esistere
-
-    while (curr != NULL) {
-        if (curr->card.num == daCercare.num && curr->card.colore == daCercare.colore) {
-            c = curr->card;
-
-            if (prev == NULL)
-                mano->head = curr->next;    //aggiorno la testa della mano
-            else
-                prev->next = curr->next;    //aggiorno il puntatore precedente
-
-        free(curr); //se la carta è stata trovata , la rimuovo dalla mano
+    if (mano == NULL || mano->head == NULL){
+        printf("la mano è vuota");
         return c;
         }
-        prev = curr;    //scorro la lista mano
-        curr = curr->next;
+    Node curr = mano->head;
+    Node prev = NULL;   //la carta precedente alla prima non puo esistere
+    int k;
+    for(k=1;k<occr;k++){
+            prev=curr;
+            curr=curr->next;//scorro la lista mano
     }
-
-    return c;   // Restituisce carta "vuota" se non trovata
-    printf("la carta non è presente nella mano");
+    if (prev == NULL)
+        mano->head = curr->next;    //aggiorno la testa della mano
+    else
+        prev->next = curr->next;    //aggiorno il puntatore precedente
+    c.num=curr->card.num;
+    c.colore=curr->card.colore;
+    free(curr); //se la carta è stata trovata , la rimuovo dalla mano
+    return c;
 }
-
 
 void stampaMano(List mano) {
     if (mano == NULL || mano->head == NULL) {

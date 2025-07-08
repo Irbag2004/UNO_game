@@ -1,6 +1,7 @@
 #ifndef MAZZO_H_INCLUDED
 #define MAZZO_H_INCLUDED
 
+
 #include <stdbool.h>
 
 
@@ -48,11 +49,13 @@ bool hasNextCard(List l);
 void rewindCursor(List l);
 
 
-
-
 List riempiMazzo();
 
-struct carta PrendiERimuoviPrimaCarta();
+struct carta RimuoviPrimaCarta();
 void stampaCarta(struct carta c);
+
+
+
+//per le fasi di gioco
 
 #endif // MAZZO_H_INCLUDED
