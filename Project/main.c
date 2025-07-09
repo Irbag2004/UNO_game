@@ -5,39 +5,19 @@
 
 #include "mano.h"
 #include "pila_scarti.h"
-#define DIM 20
+#include "gioco.h"
+#include "partiteVinte.h"
+#define DIM 50
 
 
 int main() {
 
-    List mazzo = riempiMazzo();
-    printList(mazzo);
+    /*//List mazzo = riempiMazzo();
+    //printList(mazzo);
 
-    List mazzoDisordinato = createList();
-
-    srand(time(NULL));
-    while(!isEmpty(mazzo)) {
-        int indiceCartaDaInserire = rand()%length(mazzo);
-
-        rewindCursor(mazzo);
-        int i;
-        struct carta c;
-        for (i=0; i<=indiceCartaDaInserire; i++)
-            c = nextCard(mazzo);
-        insertFirst(mazzoDisordinato, c);
-        delete(mazzo, c);
-    }
 
     printf("\nMazzo mischiato:\n");
     printList(mazzoDisordinato);
-
-//Prova stack
-    //Creo la pila degli scarti
-    Scarti scarti = createScarti();
-    if (scarti == NULL) {
-        printf("Errore nella creazione dello stack.\n");
-        return 1;
-    }
 
     //Creo alcune carte di esempio
     struct carta prima = RimuoviPrimaCarta(mazzoDisordinato);
@@ -46,8 +26,6 @@ int main() {
     //Inserisco le carte nello stack
     pushScarto(scarti, prima);
     pushScarto(scarti, seconda);
-
-
 
     //Controllo la carta in cima
     struct carta top = topScarto(scarti);
@@ -68,7 +46,7 @@ int main() {
     stampaMano(manoG1);
     ordinaMano(manoG1);
     printf("\nMano ordinata:\n");
-    stampaMano(manoG1);
+    stampaMano(manoG1);*/
 
 
 
@@ -78,24 +56,24 @@ int main() {
 
 
 //Interfaccia utente
+struct player g1;
+struct player g2;
+//char giocatore1[DIM];
+//char giocatore2[DIM];
 
-
-char giocatore1[DIM];
-char giocatore2[DIM];
-
-int occr;
+//int occr;
 int selUno;
-
+int i;
 bool esc=false;
 char sel1;
 int sel2;
-int sel3;
+char sel3;
 printf("\n----------------------GIOCO DI CARTE UNO----------------------\nPremere invio per visualizzare il menu,qualsiasi altro tasto e poi invio per uscire...");
 scanf("%c",&sel1);
 if(sel1==10){//codice ASCII della sequenza di escape \n
     while(!esc){
         printf("\n\nMENU:(Per selezionare un'opzione, digitare il numero corrispondente)\n");
-        printf("1.Partita 2 giocatori\n2.Visualizza Classifica\n3.Visualizza regole di gioco\n4.Esci dal gioco\n...");
+        printf("1.Partita 2 giocatori\n2.Visualizza partite vinte\n3.Visualizza regole di gioco\n4.Esci dal gioco\n...");
         scanf("%d",&sel2);
         switch(sel2){
             case 1:{
@@ -115,17 +93,17 @@ if(sel1==10){//codice ASCII della sequenza di escape \n
                     printf("giocatore1 hai vinto il lancio della moneta, inizi tu a giocare");
                     printf("\ndigitare i nomi dei giocatori\n");
                     printf("giocatore1:\n");
-                    scanf("%s",giocatore1);
+                    scanf("%s",g1.nome);
                     printf("giocatore2:\n");
-                    scanf("%s",giocatore2);
+                    scanf("%s",g2.nome);
                 }
                 else{
                     printf("giocatore2 hai vinto il lancio della moneta, inizi tu a giocare");
                     printf("\ndigitare i nomi dei giocatori\n");
                     printf("giocatore2:\n");
-                    scanf("%s",giocatore1);
+                    scanf("%s",g1.nome);
                     printf("giocatore1:\n");
-                    scanf("%s",giocatore2);
+                    scanf("%s",g2.nome);
                 }
                 //predisposizione inzio partita
                 List mazzo = riempiMazzo();
@@ -170,22 +148,24 @@ if(sel1==10){//codice ASCII della sequenza di escape \n
                     cartaATerra=topScarto(scarti);
                     stampaCarta(cartaATerra);
 
-                printf("e' il turno di %s",giocatore1);
+                printf("e' il turno di %s",g1.nome);
                 printf("\n\nPremere invio per giocare,qualsiasi altro tasto e poi invio per uscire...\n");
                 fflush(stdin);
                 scanf("%c",&sel3);
                 if(sel3==10){//codice ASCII della sequenza di escape
 
-                        printf("\n\nil numero di carte di %s  e':",giocatore2);
+                        printf("\n\nil numero di carte di %s  e':",g2.nome);
                         printf("%d\n",numeroCarteMano(manoG2));
-                            gioca(manoG1,scarti,cartaATerra);
-                            if(gioca){
+                            if(gioca(manoG1,scarti,cartaATerra)){
                                 pesca(manoG1,mazzoDisordinato);
                                 gioca(manoG1,scarti,cartaATerra);
-                                if(manoVuota(manoG1)){
-                                    printf("%s ha vinto la partita",giocatore1);
-                                    return 0;
-                                }
+                            }
+                            if(manoVuota(manoG1)){
+                                printf("%s ha vinto la partita!",g1.nome);
+                                g1.punteggio++;
+                                Upload(g1);
+                                break;
+                            }
 
                                 printf("digitare 0 se si vuole passare la mano di gioco");
                                 scanf("%d",&selUno);
@@ -196,12 +176,13 @@ if(sel1==10){//codice ASCII della sequenza di escape \n
                                 }
                         }
 
-
                 }
+                //turno giocatore 2
+
             break;
 
             case 2:
-            //Classifica
+                stampaPoints();
             break;
             case 3:
             {
@@ -230,4 +211,4 @@ if(sel1==10){//codice ASCII della sequenza di escape \n
 }
 return 0;
 
-}}
+}

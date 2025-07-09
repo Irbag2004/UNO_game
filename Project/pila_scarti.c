@@ -11,14 +11,16 @@ Scarti createScarti() {
         if (s->stack != NULL) {
             s->size = INCREASE_SIZE;
             s->top_index = -1;
-        } else {
+        }
+        else {
             free(s);
             s = NULL;
-            //printf("\nMemoria non disponibile...\n");
+            printf("\nMemoria non disponibile...\n");
         }
-    //else
-    //    printf("\nMemoria non disponibile...\n");
     }
+    else
+        printf("\nMemoria non disponibile...\n");
+
     return s;
 }
 
