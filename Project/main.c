@@ -9,69 +9,7 @@
 #include "partiteVinte.h"
 #define DIM 50
 
-
 int main() {
-/*
-    List mazzo = riempiMazzo();
-    printList(mazzo);
-
-
-    List mazzoDisordinato = createList();
-    srand(time(NULL));
-    while(!isEmpty(mazzo)) {
-        int indiceCartaDaInserire = rand()%length(mazzo);
-
-        rewindCursor(mazzo);
-        int i;
-        struct carta c;
-        for (i=0; i<=indiceCartaDaInserire; i++)
-        c = nextCard(mazzo);
-        insertFirst(mazzoDisordinato, c);
-        delete(mazzo, c);
-    }
-    printf("\nMazzo mischiato:\n");
-    printList(mazzoDisordinato);
-
-    Scarti scarti = createScarti();
-    if (scarti == NULL) {
-        printf("Errore nella creazione dello stack.\n");
-        return 1;
-    }
-
-    //Creo alcune carte di esempio
-    struct carta prima = RimuoviPrimaCarta(mazzoDisordinato);
-    struct carta seconda = RimuoviPrimaCarta(mazzoDisordinato);
-
-    //Inserisco le carte nello stack
-    pushScarto(scarti, prima);
-    pushScarto(scarti, seconda);
-
-    //Controllo la carta in cima
-    struct carta top = topScarto(scarti);
-    stampaCarta(top);
-
-    printScarti(scarti);
-
-    //Distrugge lo stack
-    destroyScarti(scarti);
-
-    //PROVA MANO
-    printf("\n\n\n");
-    int i;
-    List manoG1=createList();
-    for(i=0;i<7;i++){
-        struct carta ci=RimuoviPrimaCarta(mazzoDisordinato);
-        aggiungiCarta(manoG1,ci);
-    }
-
-    stampaMano(manoG1);
-    ordinaMano(manoG1);
-    printf("\nMano ordinata:\n");
-    stampaMano(manoG1);
-
-*/
-
-//Interfaccia utente
 
 int selUno;
 bool esc=false;
@@ -79,6 +17,8 @@ char sel1;
 int sel2;
 char sel3;
 char data[5];
+
+//Interfaccia utente
 printf("\n----------------------GIOCO DI CARTE UNO----------------------\n");
 printf("Inserire giorno e mese(gg-mm)...");
 scanf("%s",data);
@@ -141,7 +81,7 @@ if(sel1==10){//codice ASCII della sequenza di escape \n
                     delete(mazzo, c);
                 }
 
-                Scarti scarti = createScarti();
+                Scarti scarti = createScarti();//creazione della pila degli scarti
                     if (scarti == NULL) {
                         printf("Errore nella creazione dello stack.\n");
                         return 1;
@@ -149,7 +89,7 @@ if(sel1==10){//codice ASCII della sequenza di escape \n
 
                 pushScarto(scarti,RimuoviPrimaCarta(mazzoDisordinato)); //aggiunge la prima carta del mazzo alla pila degli scarti
 
-                //creo mani
+                //creazione mani di gioco
 
                 List manoG1=createList();
                 int i;
@@ -169,11 +109,13 @@ if(sel1==10){//codice ASCII della sequenza di escape \n
                 //predisposizione turni
 
                 bool partitaTerminata=false;
-                bool blocca1=false;
                 bool blocca2=false;
+                bool blocca1=false;
                 struct carta cartaATerra;
                 while(!partitaTerminata){
                     if(!blocca1){
+                    blocca2=false;
+
                     //turno giocatore 1
                     cartaATerra=topScarto(scarti);
                     printf("\nCARTA A TERRA: ");
@@ -193,19 +135,19 @@ if(sel1==10){//codice ASCII della sequenza di escape \n
                             }
                                 cartaATerra=topScarto(scarti);
 
-                            if(cartaATerra.num==SALTA_GIRO||cartaATerra.num==CAMBIA_GIRO)
+                            if(cartaATerra.num==SALTA_GIRO||cartaATerra.num==CAMBIA_GIRO)   //salta_giro, cambia_giro
                                 blocca2=true;
-                            if(cartaATerra.colore==NEUTRO){
-                                printf("\nscegliere il colore desiderato(1-B, 2-G, 3-R, 4-V)...");
+                            if(cartaATerra.colore==NEUTRO){     //cambia_colore, pesca_quattro
+                                printf("\nscegliere il colore desiderato(0-B, 1-G, 2-R, 3-V)...");
                                 scanf("%d",&cartaATerra.colore);
                                 pushScarto(scarti,cartaATerra);
                             }
-                            if(cartaATerra.num==PESCA_QUATTRO)
+                            if(cartaATerra.num==PESCA_QUATTRO)  //pesca_quattro
                                 pesca4(manoG2,mazzoDisordinato);
-                            if(cartaATerra.num==PESCA_DUE)
+                            if(cartaATerra.num==PESCA_DUE)  //pesca_due
                                 pesca2(manoG2,mazzoDisordinato);
 
-                            if(manoVuota(manoG1)){
+                            if(manoVuota(manoG1)){  //condizione di vittoria
                                 printf("%s ha vinto la partita!",g1.nome);
                                 g1.punteggio++;
                                 partitaTerminata = true;
@@ -214,7 +156,7 @@ if(sel1==10){//codice ASCII della sequenza di escape \n
                                 printf("digitare 0 se si vuole passare la mano di gioco...");
                                 scanf("%d",&selUno);
 
-                                if(numeroCarteMano(manoG1)==1){
+                                if(numeroCarteMano(manoG1)==1){ //una sola carta in mano
                                     if(selUno==0){
                                         printf("%s NON HA DETTO UNO!! Pesca due carte\n",g1.nome);
                                         pesca2(manoG1,mazzoDisordinato);
@@ -228,8 +170,9 @@ if(sel1==10){//codice ASCII della sequenza di escape \n
                         break;
                     }
 
-                //turno giocatore 2
+                    //turno giocatore 2
                     if(!blocca2){
+                        blocca1=false;
                         cartaATerra=topScarto(scarti);
                         printf("\nCARTA A TERRA: ");
                         stampaCarta(cartaATerra);
@@ -248,14 +191,14 @@ if(sel1==10){//codice ASCII della sequenza di escape \n
                             if(cartaATerra.num==SALTA_GIRO||cartaATerra.num==CAMBIA_GIRO)
                                 blocca1=true;
                             if(cartaATerra.colore==NEUTRO){
-                                printf("\nscegliere il colore desiderato(1-B, 2-G, 3-R, 4-V)...");
+                                printf("\nscegliere il colore desiderato(0-B, 1-G, 2-R, 3-V)...");
                                 scanf("%d",&cartaATerra.colore);
                                 pushScarto(scarti,cartaATerra);
                             }
                             if(cartaATerra.num==PESCA_QUATTRO)
-                                pesca4(manoG2,mazzoDisordinato);
+                                pesca4(manoG1,mazzoDisordinato);
                             if(cartaATerra.num==PESCA_DUE)
-                                pesca2(manoG2,mazzoDisordinato);
+                                pesca2(manoG1,mazzoDisordinato);
                             if(manoVuota(manoG2)){
                                 printf("%s ha vinto la partita!",g2.nome);
                                 g2.punteggio++;

@@ -57,23 +57,23 @@
 	<limits.h>
 	"pila_scarti.h"
 
-1752052755 source:c:\users\gabri\documents\github\project\listamazzo.c
+1752083879 source:c:\users\gabri\documents\github\project\listamazzo.c
 	<stdbool.h>
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
 	"mazzo.h"
 
-1752052755 c:\users\gabri\documents\github\project\mazzo.h
+1752083879 c:\users\gabri\documents\github\project\mazzo.h
 	<stdbool.h>
 
-1751997938 source:c:\users\gabri\documents\github\project\pila_scarti.c
+1752083879 source:c:\users\gabri\documents\github\project\pila_scarti.c
 	<stdio.h>
 	<stdlib.h>
 	<limits.h>
 	"pila_scarti.h"
 
-1752052755 c:\users\gabri\documents\github\project\pila_scarti.h
+1752083879 c:\users\gabri\documents\github\project\pila_scarti.h
 	<stdbool.h>
 	"mano.h"
 
@@ -83,7 +83,7 @@
 	<stdlib.h>
 	"mazzo.h"
 
-1752052898 source:c:\users\gabri\documents\github\project\main.c
+1752083879 source:c:\users\gabri\documents\github\project\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -93,7 +93,7 @@
 	"gioco.h"
 	"partiteVinte.h"
 
-1752052755 source:c:\users\gabri\documents\github\project\mano.c
+1752083879 source:c:\users\gabri\documents\github\project\mano.c
 	<stdio.h>
 	<stdlib.h>
 	"mano.h"
@@ -102,7 +102,7 @@
 	<stdbool.h>
 	"mazzo.h"
 
-1752052755 source:c:\users\gabri\documents\github\project\gioco.c
+1752083879 source:c:\users\gabri\documents\github\project\gioco.c
 	<stdio.h>
 	<stdbool.h>
 	<stdlib.h>
@@ -144,14 +144,16 @@
 	<stdbool.h>
 	"partiteVinte.h"
 
-1752052755 c:\users\gabri\documents\github\project\gioco.h
+1752083879 c:\users\gabri\documents\github\project\gioco.h
 	"pila_scarti.h"
 	<stdbool.h>
 
-1752052752 source:c:\users\gabri\documents\github\project\partitevinte.c
+1752083879 source:c:\users\gabri\documents\github\project\partitevinte.c
 	<stdio.h>
+	<stdlib.h>
 	<string.h>
+	<stdbool.h>
 	"partiteVinte.h"
 
-1752052752 c:\users\gabri\documents\github\project\partitevinte.h
+1752083879 c:\users\gabri\documents\github\project\partitevinte.h
 
