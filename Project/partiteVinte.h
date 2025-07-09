@@ -7,7 +7,7 @@ struct player{
     int punteggio;
 };
 
-void Upload(struct player g);
+void Upload(struct player g1,struct player g2,char data[]);
 void stampaPoints();
 
 #endif // CLASSIFICA_H_INCLUDED

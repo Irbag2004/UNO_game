@@ -50,7 +50,7 @@ void printList(List l) {
 bool isEmpty(List l) {
     return (l->head == NULL);
 }
-void rewindCursor(List l) {
+void rewindCursor(List l) {//porto in testa il cursore
     l->cursor = l->head;
 }
 
@@ -58,7 +58,7 @@ bool hasNextCard(List l) {
     return (l->cursor != NULL);
 }
 
-struct carta nextCard(List l) {
+struct carta nextCard(List l) {//ritorna carta successiva
     Node tempN = NULL;
     if(hasNextCard(l)) {
         tempN = l->cursor;
@@ -68,14 +68,13 @@ struct carta nextCard(List l) {
 };
 
 
-bool delete(List l, struct carta card) {
+bool delete(List l, struct carta card) {//elimina una carta dal mazzo
     Node prev = NULL;
     Node curr = l->head;
 
     while (curr != NULL) {
         if (curr->card.colore == card.colore && curr->card.num == card.num) {
             if (prev == NULL) {
-                // La carta è in testa alla lista
                 l->head = curr->next;
             } else {
                 prev->next = curr->next;
@@ -106,3 +105,19 @@ bool delete(List l, struct carta card) {
     void stampaCarta(struct carta c) {
     printf("num = %s, colore = %s\n", NumeroNome[c.num], ColoreNome[c.colore]);
     }
+
+void destroyList(List l) {
+    if (l != NULL) {
+        Node current = l->head;
+        Node next;
+
+        while (current != NULL) {
+            next = current->next;
+            free(current);
+            current = next;
+        }
+
+        free(l);
+    }
+}
+

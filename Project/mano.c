@@ -7,7 +7,6 @@ const char* ColoreName[] ={"B", "G", "R", "V","N"};
 const char* NumeroName[] ={"0","1", "2", "3", "4", "5", "6", "7", "8", "9", "X","<->", "+2", "CC","+4"};
 
 
-// Aggiunge una carta in testa alla mano
 bool aggiungiCarta(List mano, struct carta c) {
     if (mano == NULL) return false;
 
@@ -21,7 +20,6 @@ bool aggiungiCarta(List mano, struct carta c) {
 }
 
 
-//rimuove il numero della carta richiesta dalla mano, pronta per essere giocata
 
 struct carta estraiCarta(List mano, int occr) {
     struct carta c = { .num = -1, .colore = -1 };

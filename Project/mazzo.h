@@ -54,8 +54,7 @@ List riempiMazzo();
 struct carta RimuoviPrimaCarta();
 void stampaCarta(struct carta c);
 
+void destroyList();
 
-
-//per le fasi di gioco
 
 #endif // MAZZO_H_INCLUDED
