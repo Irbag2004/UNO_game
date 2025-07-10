@@ -13,12 +13,14 @@ bool gioca(List manoG, Scarti s, struct carta cartaATerra) {
     bool giocabile=false;
     printf("\nDigita la posizione della carta da giocare...");
     scanf("%d", &occr);
+    fflush(stdin);
 
    while (!giocabile) {
     while (occr < 1 || occr > numeroCarteMano(manoG)) {
         printf("posizione errata\n");
         printf("Digita la posizione della carta da giocare...");
         scanf("%d", &occr);
+        fflush(stdin);
     }
 
     struct carta cartaDaGiocare = estraiCarta(manoG, occr);
@@ -35,9 +37,10 @@ bool gioca(List manoG, Scarti s, struct carta cartaATerra) {
         aggiungiCarta(manoG, cartaDaGiocare);
         ordinaMano(manoG);
 
-        int draw = 1;
+        int draw;
         printf("Se vuoi pescare o passare digita 0, altrimenti un numero qualsiasi...");
         scanf("%d", &draw);
+        fflush(stdin);
         if (draw == 0)
             return true;
     }
@@ -45,6 +48,7 @@ bool gioca(List manoG, Scarti s, struct carta cartaATerra) {
     if (!giocabile) {
         printf("Digita la posizione della carta da giocare...");
         scanf("%d", &occr);
+        fflush(stdin);
     }
    }
    return false;

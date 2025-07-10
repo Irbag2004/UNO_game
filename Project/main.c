@@ -25,11 +25,13 @@ scanf("%s",data);
 fflush(stdin);
 printf("Premere invio per visualizzare il menu,qualsiasi altro tasto e poi invio per uscire...");
 scanf("%c",&sel1);
+fflush(stdin);
 if(sel1==10){//codice ASCII della sequenza di escape \n
     while(!esc){
         printf("\n\nMENU:(Per selezionare un'opzione, digitare il numero corrispondente)\n");
         printf("1.Partita 2 giocatori\n2.Visualizza partite vinte\n3.Visualizza regole di gioco\n4.Esci dal gioco\n...");
         scanf("%d",&sel2);
+        fflush(stdin);
         switch(sel2){
             case 1:{
                 //inizializzazione giocatori
@@ -45,10 +47,17 @@ if(sel1==10){//codice ASCII della sequenza di escape \n
                 printf("giocatore1 scegli tra testa o croce per vedere chi comincia\n");
                 printf("digitare 0 per testa, digitare 1 per croce...");
                 scanf("%d",&testaCroce);
+                fflush(stdin);
+                while(testaCroce!=0&&testaCroce!=1){
+                    printf("errore nella digitazione\n");
+                    printf("digitare 0 per testa, digitare 1 per croce...");
+                    scanf("%d",&testaCroce);
+                    fflush(stdin);
+                }
                 srand(time(NULL));
                 int moneta=rand()%2;
                 if(moneta==testaCroce){
-                    printf("giocatore1 hai vinto il lancio della moneta, inizi tu a giocare");
+                    printf("\ngiocatore1 hai vinto il lancio della moneta, inizi tu a giocare");
                     printf("\ndigitare i nomi dei giocatori\n");
                     printf("giocatore1...");
                     scanf("%s",g1.nome);
@@ -56,7 +65,7 @@ if(sel1==10){//codice ASCII della sequenza di escape \n
                     scanf("%s",g2.nome);
                 }
                 else{
-                    printf("giocatore2 hai vinto il lancio della moneta, inizi tu a giocare");
+                    printf("\ngiocatore2 hai vinto il lancio della moneta, inizi tu a giocare");
                     printf("\ndigitare i nomi dei giocatori\n");
                     printf("giocatore2...");
                     scanf("%s",g1.nome);
@@ -125,28 +134,39 @@ if(sel1==10){//codice ASCII della sequenza di escape \n
                     printf("\n\nPremere invio per giocare,qualsiasi altro tasto e poi invio per uscire...");
                     fflush(stdin);
                     scanf("%c",&sel3);
+                    fflush(stdin);
                     if(sel3==10){//codice ASCII della sequenza di escape
 
                         printf("\n\nil numero di carte di %s  e':",g2.nome);
                         printf("%d\n",numeroCarteMano(manoG2));
-                            if(gioca(manoG1,scarti,cartaATerra)){
-                                pesca(manoG1,mazzoDisordinato);
-                                gioca(manoG1,scarti,cartaATerra);
-                            }
-                                cartaATerra=topScarto(scarti);
 
+                        int numCarteG1=numeroCarteMano(manoG1);
+
+                        if(gioca(manoG1,scarti,cartaATerra)){
+                            pesca(manoG1,mazzoDisordinato);
+                            gioca(manoG1,scarti,cartaATerra);
+                            }
+                        if(numeroCarteMano(manoG1)<numCarteG1){
+                            cartaATerra=topScarto(scarti);
                             if(cartaATerra.num==SALTA_GIRO||cartaATerra.num==CAMBIA_GIRO)   //salta_giro, cambia_giro
                                 blocca2=true;
                             if(cartaATerra.colore==NEUTRO){     //cambia_colore, pesca_quattro
                                 printf("\nscegliere il colore desiderato(0-B, 1-G, 2-R, 3-V)...");
-                                scanf("%d",&cartaATerra.colore);
+                                int n;
+                                scanf("%d",&n);
+                                while(n!=0&&n!=1&&n!=2&&n!=3){
+                                    printf("errore nella digitazione");
+                                    printf("\nscegliere il colore desiderato(0-B, 1-G, 2-R, 3-V)...");
+                                    scanf("%d",&n);
+                                }
+                                cartaATerra.colore=n;
                                 pushScarto(scarti,cartaATerra);
                             }
                             if(cartaATerra.num==PESCA_QUATTRO)  //pesca_quattro
                                 pesca4(manoG2,mazzoDisordinato);
                             if(cartaATerra.num==PESCA_DUE)  //pesca_due
                                 pesca2(manoG2,mazzoDisordinato);
-
+                            }
                             if(manoVuota(manoG1)){  //condizione di vittoria
                                 printf("%s ha vinto la partita!",g1.nome);
                                 g1.punteggio++;
@@ -155,6 +175,7 @@ if(sel1==10){//codice ASCII della sequenza di escape \n
                             }
                                 printf("digitare 0 se si vuole passare la mano di gioco...");
                                 scanf("%d",&selUno);
+                                fflush(stdin);
 
                                 if(numeroCarteMano(manoG1)==1){ //una sola carta in mano
                                     if(selUno==0){
@@ -180,25 +201,41 @@ if(sel1==10){//codice ASCII della sequenza di escape \n
                         fflush(stdin);
                         printf("\n\nPremere invio per giocare,qualsiasi altro tasto e poi invio per uscire...");
                         scanf("%c",&sel3);
+                        fflush(stdin);
                         if(sel3==10){//codice ASCII della sequenza di escape
+
                             printf("\n\nil numero di carte di %s  e':",g1.nome);
                             printf("%d\n",numeroCarteMano(manoG1));
+
+                            int numCarteG2=numeroCarteMano(manoG2);
+
                             if(gioca(manoG2,scarti,cartaATerra)){
                                 pesca(manoG2,mazzoDisordinato);
                                 gioca(manoG2,scarti,cartaATerra);
                             }
-                            cartaATerra=topScarto(scarti);
-                            if(cartaATerra.num==SALTA_GIRO||cartaATerra.num==CAMBIA_GIRO)
-                                blocca1=true;
-                            if(cartaATerra.colore==NEUTRO){
-                                printf("\nscegliere il colore desiderato(0-B, 1-G, 2-R, 3-V)...");
-                                scanf("%d",&cartaATerra.colore);
-                                pushScarto(scarti,cartaATerra);
+
+                            if(numeroCarteMano(manoG2)<numCarteG2){
+                                cartaATerra=topScarto(scarti);
+                                if(cartaATerra.num==SALTA_GIRO||cartaATerra.num==CAMBIA_GIRO)   //salta_giro, cambia_giro
+                                    blocca1=true;
+                                if(cartaATerra.colore==NEUTRO){     //cambia_colore, pesca_quattro
+                                    printf("\nscegliere il colore desiderato(0-B, 1-G, 2-R, 3-V)...");
+                                    int n;
+                                    scanf("%d",&n);
+                                    while(n!=0&&n!=1&&n!=2&&n!=3){
+                                        printf("errore nella digitazione");
+                                        printf("\nscegliere il colore desiderato(0-B, 1-G, 2-R, 3-V)...");
+                                        scanf("%d",&n);
+                                    }
+                                    cartaATerra.colore=n;
+                                    pushScarto(scarti,cartaATerra);
+                                }
+                                if(cartaATerra.num==PESCA_QUATTRO)  //pesca_quattro
+                                    pesca4(manoG1,mazzoDisordinato);
+                                if(cartaATerra.num==PESCA_DUE)  //pesca_due
+                                    pesca2(manoG1,mazzoDisordinato);
                             }
-                            if(cartaATerra.num==PESCA_QUATTRO)
-                                pesca4(manoG1,mazzoDisordinato);
-                            if(cartaATerra.num==PESCA_DUE)
-                                pesca2(manoG1,mazzoDisordinato);
+
                             if(manoVuota(manoG2)){
                                 printf("%s ha vinto la partita!",g2.nome);
                                 g2.punteggio++;
@@ -208,6 +245,7 @@ if(sel1==10){//codice ASCII della sequenza di escape \n
 
                             printf("digitare 0 se si vuole passare la mano di gioco...");
                             scanf("%d",&selUno);
+                            fflush(stdin);
 
                             if(numeroCarteMano(manoG2)==1){
                                 if(selUno==0){
