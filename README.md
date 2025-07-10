@@ -13,6 +13,7 @@ In una partita con soltanto due giocatori le due carte evidenziate qui sopra han
 
 "Giocabilità" delle carte
 Una carta è giocabile se il numero o il colore corrispondente coincidono con il numero o il colore della carta a terra (la prima carta della pila negli scarti). Le carte "Neutre" ("CC", "+4"), sono sempre giocabili. Allo stesso modo se la prima carta a terra, a inizio gioco, è una carta "Neutra", il primo giocatore può scegliere un colore e giocare una qualsiasi carta dalla sua mano.
+Se nessuna delle carte del giocatore è giocabile, egli deve obbligatoriamente pescare una carta dal mazzo, e può giocarla se la nuova carta è giocabile.
 
 Gioco:
 Per giocare una carta il giocatore deve digitare la posizione della carta nella mano di gioco, stampata a schermo. La prima carta è in posizione 1.
