@@ -21,17 +21,17 @@
 	<stdlib.h>
 	"mazzo.h"
 
-1752059417 source:c:\users\hp\desktop\unical\lt_ingelettronica\2_anno\2_semestre\laboratorio di informatica\progetto\project\listamazzo.c
+1752082980 source:c:\users\hp\desktop\unical\lt_ingelettronica\2_anno\2_semestre\laboratorio di informatica\progetto\project\listamazzo.c
 	<stdbool.h>
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
 	"mazzo.h"
 
-1752059044 c:\users\hp\desktop\unical\lt_ingelettronica\2_anno\2_semestre\laboratorio di informatica\progetto\project\mazzo.h
+1752081406 c:\users\hp\desktop\unical\lt_ingelettronica\2_anno\2_semestre\laboratorio di informatica\progetto\project\mazzo.h
 	<stdbool.h>
 
-1752080268 source:c:\users\hp\desktop\unical\lt_ingelettronica\2_anno\2_semestre\laboratorio di informatica\progetto\project\main.c
+1752153541 source:c:\users\hp\desktop\unical\lt_ingelettronica\2_anno\2_semestre\laboratorio di informatica\progetto\project\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -47,11 +47,11 @@
 	<stdlib.h>
 	"mazzo.h"
 
-1752080153 c:\users\hp\desktop\unical\lt_ingelettronica\2_anno\2_semestre\laboratorio di informatica\progetto\project\pila_scarti.h
+1752083292 c:\users\hp\desktop\unical\lt_ingelettronica\2_anno\2_semestre\laboratorio di informatica\progetto\project\pila_scarti.h
 	<stdbool.h>
 	"mano.h"
 
-1752080175 source:c:\users\hp\desktop\unical\lt_ingelettronica\2_anno\2_semestre\laboratorio di informatica\progetto\project\pila_scarti.c
+1752082475 source:c:\users\hp\desktop\unical\lt_ingelettronica\2_anno\2_semestre\laboratorio di informatica\progetto\project\pila_scarti.c
 	<stdio.h>
 	<stdlib.h>
 	<limits.h>
@@ -109,7 +109,7 @@
 	"pila_scarti.h"
 	"gioco.h"
 
-1751998271 source:c:\users\hp\desktop\unical\lt_ingelettronica\2_anno\2_semestre\laboratorio di informatica\progetto\project\mano.c
+1752081694 source:c:\users\hp\desktop\unical\lt_ingelettronica\2_anno\2_semestre\laboratorio di informatica\progetto\project\mano.c
 	<stdio.h>
 	<stdlib.h>
 	"mano.h"
@@ -124,14 +124,14 @@
 
 1752012318 c:\users\hp\desktop\unical\lt_ingelettronica\2_anno\2_semestre\laboratorio di informatica\progetto\project\classifica.h
 
-1752078988 source:c:\users\hp\desktop\unical\lt_ingelettronica\2_anno\2_semestre\laboratorio di informatica\progetto\project\gioco.c
+1752150233 source:c:\users\hp\desktop\unical\lt_ingelettronica\2_anno\2_semestre\laboratorio di informatica\progetto\project\gioco.c
 	<stdio.h>
 	<stdbool.h>
 	<stdlib.h>
 	"pila_scarti.h"
 	"gioco.h"
 
-1752059732 c:\users\hp\desktop\unical\lt_ingelettronica\2_anno\2_semestre\laboratorio di informatica\progetto\project\gioco.h
+1752081428 c:\users\hp\desktop\unical\lt_ingelettronica\2_anno\2_semestre\laboratorio di informatica\progetto\project\gioco.h
 	"pila_scarti.h"
 	<stdbool.h>
 

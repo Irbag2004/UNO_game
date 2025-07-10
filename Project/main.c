@@ -9,6 +9,7 @@
 #include "partiteVinte.h"
 #define DIM 50
 
+
 int main() {
 
 int selUno;
@@ -34,15 +35,16 @@ if(sel1==10){//codice ASCII della sequenza di escape \n
         fflush(stdin);
         switch(sel2){
             case 1:{
-                //inizializzazione giocatori
 
+                //inizializzazione giocatori
                 struct player g1;
                 struct player g2;
                 g1.punteggio=0;
                 g2.punteggio=0;
 
-                //Scelta casuale ordine giocatore
 
+
+                //Scelta casuale ordine giocatore
                 int testaCroce;
                 printf("giocatore1 scegli tra testa o croce per vedere chi comincia\n");
                 printf("digitare 0 per testa, digitare 1 per croce...");
@@ -73,8 +75,10 @@ if(sel1==10){//codice ASCII della sequenza di escape \n
                     scanf("%s",g2.nome);
                 }
 
-                //predisposizione inzio partita
 
+
+
+                //predisposizione inizio partita
                 List mazzo = riempiMazzo();
                 List mazzoDisordinato = createList();
                 srand(time(NULL));
@@ -98,8 +102,10 @@ if(sel1==10){//codice ASCII della sequenza di escape \n
 
                 pushScarto(scarti,RimuoviPrimaCarta(mazzoDisordinato)); //aggiunge la prima carta del mazzo alla pila degli scarti
 
-                //creazione mani di gioco
 
+
+
+                //creazione mani di gioco
                 List manoG1=createList();
                 int i;
                 for(i=0;i<7;i++){
@@ -115,39 +121,45 @@ if(sel1==10){//codice ASCII della sequenza di escape \n
                     }
                 ordinaMano(manoG2);
 
-                //predisposizione turni
 
+
+
+                //predisposizione turni
                 bool partitaTerminata=false;
                 bool blocca2=false;
                 bool blocca1=false;
                 struct carta cartaATerra;
                 while(!partitaTerminata){
-                    if(!blocca1){
-                    blocca2=false;
+
+
 
                     //turno giocatore 1
-                    cartaATerra=topScarto(scarti);
-                    printf("\nCARTA A TERRA: ");
-                    stampaCarta(cartaATerra);
+                    if(!blocca1){
+                        blocca2=false;
+                        cartaATerra=topScarto(scarti);
+                        printf("\nCARTA A TERRA: ");
+                        stampaCarta(cartaATerra);
 
-                    printf("\ne' il turno di %s",g1.nome);
-                    printf("\n\nPremere invio per giocare,qualsiasi altro tasto e poi invio per uscire...");
-                    fflush(stdin);
-                    scanf("%c",&sel3);
-                    fflush(stdin);
-                    if(sel3==10){//codice ASCII della sequenza di escape
+                        printf("\ne' il turno di %s",g1.nome);
+                        printf("\n\nPremere invio per giocare,qualsiasi altro tasto e poi invio per uscire...");
+                        fflush(stdin);
+                        scanf("%c",&sel3);
+                        fflush(stdin);
+                        if(sel3==10){//codice ASCII della sequenza di escape
 
-                        printf("\n\nil numero di carte di %s  e':",g2.nome);
-                        printf("%d\n",numeroCarteMano(manoG2));
+                            printf("\n\nil numero di carte di %s  e':",g2.nome);
+                            printf("%d\n",numeroCarteMano(manoG2));
 
-                        int numCarteG1=numeroCarteMano(manoG1);
+                            int numCarteG1=numeroCarteMano(manoG1);
 
-                        if(gioca(manoG1,scarti,cartaATerra)){
-                            pesca(manoG1,mazzoDisordinato);
-                            gioca(manoG1,scarti,cartaATerra);
+                            if(gioca(manoG1,scarti,cartaATerra)){
+                                pesca(manoG1,mazzoDisordinato);
+                                gioca(manoG1,scarti,cartaATerra);
                             }
-                        if(numeroCarteMano(manoG1)<numCarteG1){
-                            cartaATerra=topScarto(scarti);
+
+                            //controllo carte speciali
+                            if(numeroCarteMano(manoG1)<numCarteG1){
+                                cartaATerra=topScarto(scarti);
                             if(cartaATerra.num==SALTA_GIRO||cartaATerra.num==CAMBIA_GIRO)   //salta_giro, cambia_giro
                                 blocca2=true;
                             if(cartaATerra.colore==NEUTRO){     //cambia_colore, pesca_quattro
@@ -167,29 +179,35 @@ if(sel1==10){//codice ASCII della sequenza di escape \n
                             if(cartaATerra.num==PESCA_DUE)  //pesca_due
                                 pesca2(manoG2,mazzoDisordinato);
                             }
-                            if(manoVuota(manoG1)){  //condizione di vittoria
+
+                            //condizione di vittoria
+                            if(manoVuota(manoG1)){
                                 printf("%s ha vinto la partita!",g1.nome);
                                 g1.punteggio++;
                                 partitaTerminata = true;
                                 break;
                             }
-                                printf("digitare 0 se si vuole passare la mano di gioco...");
-                                scanf("%d",&selUno);
-                                fflush(stdin);
 
-                                if(numeroCarteMano(manoG1)==1){ //una sola carta in mano
+                            //fine turno
+                            printf("digitare 0 se si vuole passare la mano di gioco...");
+                            scanf("%d",&selUno);
+                            fflush(stdin);
+
+                            if(numeroCarteMano(manoG1)==1){ //una sola carta in mano
                                     if(selUno==0){
                                         printf("%s NON HA DETTO UNO!! Pesca due carte\n",g1.nome);
                                         pesca2(manoG1,mazzoDisordinato);
                                     }
                                     else
                                         printf("%s ha detto UNO\n",g1.nome);
-                                }
+                            }
+                        }
+                        else
+                            break;
+                    }
 
-                    }
-                    else
-                        break;
-                    }
+
+
 
                     //turno giocatore 2
                     if(!blocca2){
@@ -214,6 +232,7 @@ if(sel1==10){//codice ASCII della sequenza di escape \n
                                 gioca(manoG2,scarti,cartaATerra);
                             }
 
+                            //controllo carte speciali
                             if(numeroCarteMano(manoG2)<numCarteG2){
                                 cartaATerra=topScarto(scarti);
                                 if(cartaATerra.num==SALTA_GIRO||cartaATerra.num==CAMBIA_GIRO)   //salta_giro, cambia_giro
@@ -236,6 +255,7 @@ if(sel1==10){//codice ASCII della sequenza di escape \n
                                     pesca2(manoG1,mazzoDisordinato);
                             }
 
+                            //condizione di vittoria
                             if(manoVuota(manoG2)){
                                 printf("%s ha vinto la partita!",g2.nome);
                                 g2.punteggio++;
@@ -243,6 +263,7 @@ if(sel1==10){//codice ASCII della sequenza di escape \n
                                 break;
                             }
 
+                            //fine turno
                             printf("digitare 0 se si vuole passare la mano di gioco...");
                             scanf("%d",&selUno);
                             fflush(stdin);
@@ -262,7 +283,6 @@ if(sel1==10){//codice ASCII della sequenza di escape \n
                 }
 
                 //a partita terminata, libero la memoria e carico i punteggi in classifica
-
                 if (partitaTerminata) {
                     Upload(g1,g2,data);
                     destroyList(mazzo);
@@ -304,7 +324,7 @@ if(sel1==10){//codice ASCII della sequenza di escape \n
                 esc=true;//Aggiorno la variabile esc per uscire dal menù
             break;
 
-
+            //caso di selezione errata
             default:
             {
                 printf("Selezione errata...riprovare\n");
